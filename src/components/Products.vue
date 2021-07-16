@@ -2,11 +2,11 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-      <v-layout justify-center>
-      <v-avatar>
-        <v-img :src="logo" />
-        </v-avatar>
-      </v-layout>
+        <v-layout justify-center>
+          <v-avatar>
+            <v-img :src="logo" />
+          </v-avatar>
+        </v-layout>
       </v-col>
 
       <v-col class="mb-4">
