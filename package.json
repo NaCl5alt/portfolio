@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service build && gh-pages -d dist",
+    "deploy": "vite build && gh-pages -d dist",
     "dev": "vite"
   },
   "dependencies": {
