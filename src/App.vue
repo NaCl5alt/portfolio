@@ -1,24 +1,32 @@
 <template>
   <v-app>
-    <v-card class="overflow-hidden">
-      <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
-        <v-spacer />
-        <v-breadcrumbs :items="items" />
-      </v-app-bar>
-      <v-sheet id="main" class="overflow-y-auto" max-height="100vh">
-        <v-main style="position: relative">
-          <router-view />
-        </v-main>
-      </v-sheet>
-    </v-card>
+    <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
+      <v-spacer />
+      <v-breadcrumbs :items="items" />
+    </v-app-bar>
+    <v-sheet id="main" class="overflow-y-auto" max-height="100vh">
+      <v-main style="position: relative">
+        <Profile />
+        <Career />
+        <Products />
+      </v-main>
+    </v-sheet>
   </v-app>
 </template>
 
 <script>
+import Profile from "./components/Profile.vue";
+import Career from "./components/Career.vue";
+import Products from "./components/Products.vue";
+
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    Profile,
+    Career,
+    Products,
+  },
   data: () => ({
     items: [
       {
