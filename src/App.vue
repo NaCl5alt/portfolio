@@ -3,16 +3,7 @@
     <v-card class="overflow-hidden">
       <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
         <v-spacer />
-        <ul class="v-breadcrumbs v-breadcrumbs--density-default">
-          <template v-for="item in items" :key="item.text">
-            <a v-bind:href="item.href">
-              {{ item.text }}
-            </a>
-            <li v-if="item.text != 'Products'" class="v-breadcrumbs-divider">
-              /
-            </li>
-          </template>
-        </ul>
+        <v-breadcrumbs :items="items" />
       </v-app-bar>
       <v-sheet id="main" class="overflow-y-auto" max-height="100vh">
         <v-main style="position: relative">
