@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
       <v-spacer />
-      <v-breadcrumbs :items="items" />
+      <v-breadcrumbs :items="items" large />
     </v-app-bar>
     <v-sheet id="main" class="overflow-y-auto" max-height="100vh">
       <v-main style="position: relative">
