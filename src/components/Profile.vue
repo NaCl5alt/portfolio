@@ -7,9 +7,16 @@
         align-content="center"
         style="margin: 10px 10px 0px"
       >
-        <v-avatar size="72">
-          <img :src="profile" alt="profileImg" />
-        </v-avatar>
+        <v-dialog v-model="dialog" max-width="500">
+          <template v-slot:activator="{ on, attrs }">
+            <v-avatar size="72" v-on="on" v-bind="attrs">
+              <img :src="profile" alt="profileImg" />
+            </v-avatar>
+          </template>
+          <v-card>
+            <img :src="profile" alt="profileImg" width="500" />
+          </v-card>
+        </v-dialog>
         <v-col>
           <div><b>Name:</b> 斎木翔太</div>
           <div><b>Birthday(age):</b> 2001/02/10 (20)</div>
@@ -34,11 +41,10 @@
 </template>
 
 <script>
-import Profile from "../assets/profile.jpg";
 export default {
   name: "Profile",
   data: () => ({
-    profile: Profile,
+    profile: require("../assets/profile.jpg"),
     links: [
       {
         site: "GitHub",
@@ -57,6 +63,7 @@ export default {
         href: "https://www.wantedly.com/id/NaCl_5alt",
       },
     ],
+    dialog: false,
   }),
 };
 </script>
