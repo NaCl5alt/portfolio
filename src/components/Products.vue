@@ -17,7 +17,9 @@
               <h2 style="margin-left: 10px">{{ product.name }}</h2>
             </v-row>
             <v-row style="margin: 30px 10px 0px">
-              {{ product.description }}
+              <div style="margin: 10px 0px 20px">
+                {{ product.description }}
+              </div>
               <v-carousel
                 height="400"
                 cycle
@@ -42,56 +44,50 @@
 </template>
 
 <script>
-// import piperiaLogo from "../assets/piperia/logo.png";
-// import piperiaFeature from "../assets/piperia/feature.png";
-// import piperiaHome from "../assets/piperia/home.png";
-// import piperiaCommunity from "../assets/piperia/community.png";
-// import piperiaDM from "../assets/piperia/dm.png";
-
 export default {
   name: "Products",
   data: () => ({
     products: [
-      {
-        name: "Sample",
-        description: "SampleText",
-        logo: "Sample",
-        link: "SampleText",
-        images: [
-          {
-            alt: "Sample1",
-            href: require("../assets/logo.png"),
-          },
-          {
-            alt: "Sample2",
-            href: require("../assets/logo.png"),
-          },
-        ],
-      },
       // {
-      //   name: "Piperia - 学生専用SNS（ピペリア）",
-      //   description: "全ての学生にオープンな場所を提供する学生専用SNS",
-      //   logo: piperiaLogo,
-      //   link: "https://play.google.com/store/apps/details?id=net.piperia.android",
+      //   name: "Sample",
+      //   description: "SampleText",
+      //   logo: "Sample",
+      //   link: "SampleText",
       //   images: [
       //     {
-      //       alt: "PiperiaFeature",
-      //       href: piperiaFeature,
+      //       alt: "Sample1",
+      //       href: require("../assets/logo.png"),
       //     },
       //     {
-      //       alt: "PiperiaHome",
-      //       href: piperiaHome,
-      //     },
-      //     {
-      //       alt: "PiperiaCommunity",
-      //       href: piperiaCommunity,
-      //     },
-      //     {
-      //       alt: "PiperiaDM",
-      //       href: piperiaDM,
+      //       alt: "Sample2",
+      //       href: require("../assets/logo.png"),
       //     },
       //   ],
       // },
+      {
+        name: "Piperia - 学生専用SNS（ピペリア）",
+        description: "全ての学生にオープンな場所を提供する学生専用SNS",
+        logo: require("../assets/piperia/logo.png"),
+        link: "https://play.google.com/store/apps/details?id=net.piperia.android",
+        images: [
+          {
+            alt: "PiperiaFeature",
+            href: require("../assets/piperia/feature.png"),
+          },
+          {
+            alt: "PiperiaHome",
+            href: require("../assets/piperia/home.png"),
+          },
+          {
+            alt: "PiperiaCommunity",
+            href: require("../assets/piperia/community.png"),
+          },
+          {
+            alt: "PiperiaDM",
+            href: require("../assets/piperia/dm.png"),
+          },
+        ],
+      },
     ],
   }),
   methods: {

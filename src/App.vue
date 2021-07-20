@@ -2,10 +2,16 @@
   <v-app>
     <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
       <v-spacer />
-      <v-breadcrumbs :items="items" large />
+      <v-breadcrumbs :items="items" large>
+        <template v-slot:item="{ item }">
+          <a :href="item.href" style="color: black; text-decoration: none">
+            {{ item.text }}
+          </a>
+        </template>
+      </v-breadcrumbs>
     </v-app-bar>
     <v-sheet id="main" class="overflow-y-auto" max-height="100vh">
-      <v-main style="position: relative">
+      <v-main style="margin: 0px 10px 0px; position: relative">
         <Profile />
         <Career />
         <Products />
