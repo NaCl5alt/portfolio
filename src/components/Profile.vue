@@ -2,14 +2,22 @@
   <v-container fluid style="padding: 64px 0px 0px" id="Profile">
     <v-layout wrap fill-height style="display: block">
       <h1>Profile</h1>
-      <v-row
-        align="center"
-        align-content="center"
-        style="margin: 10px 10px 0px"
-      >
-        <v-avatar size="72">
-          <img :src="profile" alt="profileImg" />
-        </v-avatar>
+      <v-row style="margin: 10px 10px 0px">
+        <v-dialog
+          v-model="dialog"
+          max-width="500"
+          align="center"
+          align-content="center"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-avatar size="150" v-on="on" v-bind="attrs" style="margin: 25px">
+              <img :src="profile" alt="profileImg" />
+            </v-avatar>
+          </template>
+          <v-card>
+            <img :src="profile" alt="profileImg" width="500" />
+          </v-card>
+        </v-dialog>
         <v-col>
           <div><b>Name:</b> 斎木翔太</div>
           <div><b>Birthday(age):</b> 2001/02/10 (20)</div>
@@ -34,11 +42,10 @@
 </template>
 
 <script>
-import Profile from "../assets/profile.jpg";
 export default {
   name: "Profile",
   data: () => ({
-    profile: Profile,
+    profile: require("../assets/profile.jpg"),
     links: [
       {
         site: "GitHub",
@@ -57,6 +64,7 @@ export default {
         href: "https://www.wantedly.com/id/NaCl_5alt",
       },
     ],
+    dialog: false,
   }),
 };
 </script>
