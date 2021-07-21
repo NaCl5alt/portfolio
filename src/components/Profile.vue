@@ -2,14 +2,15 @@
   <v-container fluid style="padding: 64px 0px 0px" id="Profile">
     <v-layout wrap fill-height style="display: block">
       <h1>Profile</h1>
-      <v-row
-        align="center"
-        align-content="center"
-        style="margin: 10px 10px 0px"
-      >
-        <v-dialog v-model="dialog" max-width="500">
+      <v-row style="margin: 10px 10px 0px">
+        <v-dialog
+          v-model="dialog"
+          max-width="500"
+          align="center"
+          align-content="center"
+        >
           <template v-slot:activator="{ on, attrs }">
-            <v-avatar size="72" v-on="on" v-bind="attrs">
+            <v-avatar size="150" v-on="on" v-bind="attrs" style="margin: 25px">
               <img :src="profile" alt="profileImg" />
             </v-avatar>
           </template>

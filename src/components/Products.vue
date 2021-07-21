@@ -5,17 +5,37 @@
       <v-row style="margin: 10px 10px 0px">
         <v-col>
           <div v-for="product in products" :key="product.name">
-            <v-row
-              align="center"
-              @click="onClickLink(product.link)"
-              style="cursor: pointer; margin-top: 10px"
-              :title="product.name"
-            >
-              <v-avatar size="72">
-                <img :src="product.logo" alt="profileImg" />
-              </v-avatar>
-              <h2 style="margin-left: 10px">{{ product.name }}</h2>
-            </v-row>
+            <v-dialog v-model="dialog" max-width="400">
+              <template v-slot:activator="{ on, attrs }">
+                <v-row
+                  v-on="on"
+                  v-bind="attrs"
+                  align="center"
+                  style="cursor: pointer; margin-top: 10px"
+                  :title="product.name"
+                >
+                  <v-avatar size="72">
+                    <img :src="product.logo" alt="profileImg" />
+                  </v-avatar>
+                  <h2 style="margin-left: 10px">{{ product.name }}</h2>
+                </v-row>
+              </template>
+              <v-card
+                align="center"
+                align-content="center"
+                style="padding: 10px"
+              >
+                <div style="font-size: large; margin: 10px">
+                  GooglePlayStoreへ移動しますか？
+                </div>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn color="primary" text @click="onClickLink(product.link)"
+                    >はい</v-btn
+                  >
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
             <v-row style="margin: 30px 10px 0px">
               <div style="margin: 10px 0px 20px">
                 {{ product.description }}
@@ -47,23 +67,8 @@
 export default {
   name: "Products",
   data: () => ({
+    dialog: false,
     products: [
-      // {
-      //   name: "Sample",
-      //   description: "SampleText",
-      //   logo: "Sample",
-      //   link: "SampleText",
-      //   images: [
-      //     {
-      //       alt: "Sample1",
-      //       href: require("../assets/logo.png"),
-      //     },
-      //     {
-      //       alt: "Sample2",
-      //       href: require("../assets/logo.png"),
-      //     },
-      //   ],
-      // },
       {
         name: "Piperia - 学生専用SNS（ピペリア）",
         description: "全ての学生にオープンな場所を提供する学生専用SNS",
@@ -92,6 +97,7 @@ export default {
   }),
   methods: {
     onClickLink(link) {
+      this.dialog = false;
       window.open(link, "_blank");
     },
   },
