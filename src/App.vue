@@ -1,10 +1,19 @@
 <template>
   <v-app>
-    <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
+    <v-app-bar
+      absolute
+      color="teal lighten-3"
+      elevate-on-scroll
+      scroll-target="#main"
+    >
       <v-spacer />
-      <v-breadcrumbs :items="items" large>
+      <v-breadcrumbs :items="items">
         <template v-slot:item="{ item }">
-          <a :href="item.href" style="color: black; text-decoration: none">
+          <a
+            href="javascript:void(0)"
+            @click="onClickLink(item.href)"
+            class="link"
+          >
             {{ item.text }}
           </a>
         </template>
@@ -27,7 +36,11 @@ import Products from "./components/Products.vue";
 
 export default {
   name: "App",
-
+  methods: {
+    onClickLink(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    },
+  },
   components: {
     Profile,
     Career,
@@ -38,22 +51,41 @@ export default {
       {
         text: "Profile",
         disabled: false,
-        href: "#Profile",
+        href: "Profile",
         exact: true,
       },
       {
         text: "Career",
         disabled: false,
-        href: "#Career",
+        href: "Career",
         exact: true,
       },
       {
         text: "Products",
         disabled: false,
-        href: "#Products",
+        href: "Products",
         exact: true,
       },
     ],
   }),
 };
 </script>
+
+<style>
+h1 {
+  text-shadow: 2px 0px 5px #808080;
+}
+#Profile,
+#Career,
+#Products {
+  padding: 74px 0px 0px;
+}
+.link {
+  font-size: large;
+  color: black !important;
+  text-decoration: none;
+}
+.link:hover {
+  font-weight: bold;
+}
+</style>
