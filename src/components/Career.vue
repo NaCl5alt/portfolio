@@ -1,14 +1,18 @@
 <template>
-  <v-container fluid style="padding: 64px 0px 0px" id="Career">
+  <v-container fluid id="Career">
     <v-layout wrap fill-height style="display: block">
       <h1>Career</h1>
-      <v-row
-        style="margin: 10px 10px 0px"
-        v-for="item in career"
-        :key="item.text"
-      >
-        <div>{{ item.date }}: {{ item.text }}</div>
-      </v-row>
+      <v-card tile elevation="5">
+        <v-row
+          style="margin: 10px 10px 0px; padding-bottom: 10px"
+          v-for="item in career"
+          :key="item.text"
+        >
+          <div style="margin: 10px 10px 0px">
+            {{ item.date }}: {{ item.text }}
+          </div>
+        </v-row>
+      </v-card>
     </v-layout>
   </v-container>
 </template>

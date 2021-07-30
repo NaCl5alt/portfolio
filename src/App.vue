@@ -1,6 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar absolute color="white" elevate-on-scroll scroll-target="#main">
+    <v-app-bar
+      absolute
+      color="teal lighten-3"
+      elevate-on-scroll
+      scroll-target="#main"
+    >
       <v-spacer />
       <v-breadcrumbs :items="items" large>
         <template v-slot:item="{ item }">
@@ -57,3 +62,14 @@ export default {
   }),
 };
 </script>
+
+<style>
+h1 {
+  text-shadow: 2px 0px 5px #808080;
+}
+#Profile,
+#Career,
+#Products {
+  padding: 74px 0px 0px;
+}
+</style>
