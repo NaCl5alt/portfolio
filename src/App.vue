@@ -9,7 +9,11 @@
       <v-spacer />
       <v-breadcrumbs :items="items" large>
         <template v-slot:item="{ item }">
-          <a :href="item.href" style="color: black; text-decoration: none">
+          <a
+            href="javascript:void(0)"
+            @click="onClickLink(item.href)"
+            class="link"
+          >
             {{ item.text }}
           </a>
         </template>
@@ -32,7 +36,11 @@ import Products from "./components/Products.vue";
 
 export default {
   name: "App",
-
+  methods: {
+    onClickLink(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    },
+  },
   components: {
     Profile,
     Career,
@@ -43,19 +51,19 @@ export default {
       {
         text: "Profile",
         disabled: false,
-        href: "#Profile",
+        href: "Profile",
         exact: true,
       },
       {
         text: "Career",
         disabled: false,
-        href: "#Career",
+        href: "Career",
         exact: true,
       },
       {
         text: "Products",
         disabled: false,
-        href: "#Products",
+        href: "Products",
         exact: true,
       },
     ],
@@ -71,5 +79,12 @@ h1 {
 #Career,
 #Products {
   padding: 74px 0px 0px;
+}
+.link {
+  color: black !important;
+  text-decoration: none;
+}
+.link:hover {
+  font-weight: bold;
 }
 </style>
