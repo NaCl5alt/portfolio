@@ -7,7 +7,7 @@
       scroll-target="#main"
     >
       <v-spacer />
-      <v-breadcrumbs :items="items" large>
+      <v-breadcrumbs :items="items">
         <template v-slot:item="{ item }">
           <a
             href="javascript:void(0)"
@@ -81,6 +81,7 @@ h1 {
   padding: 74px 0px 0px;
 }
 .link {
+  font-size: large;
   color: black !important;
   text-decoration: none;
 }
