@@ -25,8 +25,8 @@
             </v-card>
           </v-dialog>
           <v-col>
-            <div><b>Name:</b> 斎木翔太</div>
-            <div><b>Birthday(age):</b> 2001/02/10 (20)</div>
+            <div><b>Name:</b> {{ name }}</div>
+            <div><b>Birthday(age):</b> {{ birthDay }} ({{ calcAge }})</div>
             <div>
               <b>Link:</b><br />
               <ul>
@@ -38,9 +38,7 @@
           </v-col>
           <v-col>
             <h2>Self-introduction:</h2>
-            <div style="margin-left: 10px">
-              新米Androidエンジニアです。<br />SNSアプリやBluetoothで接続されたセンサを制御するアプリを作ってきました。<br />新しい技術に日々触れながら、常に成長し続けられるエンジニアでありたいと思っています。
-            </div>
+            <div style="margin-left: 10px">{{ description }}</div>
           </v-col>
         </v-row>
       </v-card>
@@ -52,7 +50,11 @@
 export default {
   name: "Profile",
   data: () => ({
+    name: "斎木翔太",
+    birthDay: "2001/02/10",
     profile: require("../assets/profile.jpg"),
+    description:
+      "新米Androidエンジニアです。SNSアプリやBluetoothで接続されたセンサを制御するアプリを作っています。新しい技術に日々触れながら、常に成長し続けられるエンジニアでありたいと思っています。",
     links: [
       {
         site: "GitHub",
@@ -73,5 +75,18 @@ export default {
     ],
     dialog: false,
   }),
+  computed: {
+    calcAge() {
+      let birthdate = this.birthDay.replace(/[/-]/g, "");
+      console.log(birthdate);
+      let today = new Date();
+      let targetdate =
+        today.getFullYear() * 10000 +
+        (today.getMonth() + 1) * 100 +
+        today.getDate();
+      console.log(targetdate);
+      return Math.floor((targetdate - birthdate) / 10000);
+    },
+  },
 };
 </script>
