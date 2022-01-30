@@ -58,7 +58,7 @@ export default {
     links: [
       {
         site: "GitHub",
-        href: "https://github.com/shouta02jp",
+        href: "https://github.com/5altNaCl",
       },
       {
         site: "Qiita",
