@@ -78,13 +78,11 @@ export default {
   computed: {
     calcAge() {
       let birthdate = this.birthDay.replace(/[/-]/g, "");
-      console.log(birthdate);
       let today = new Date();
       let targetdate =
         today.getFullYear() * 10000 +
         (today.getMonth() + 1) * 100 +
         today.getDate();
-      console.log(targetdate);
       return Math.floor((targetdate - birthdate) / 10000);
     },
   },
