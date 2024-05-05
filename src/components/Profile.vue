@@ -36,9 +36,9 @@
               </ul>
             </div>
           </v-col>
-          <v-col>
+          <v-col sm="12" md="7">
             <h2>Self-introduction:</h2>
-            <div style="margin-left: 10px">{{ description }}</div>
+            <p class="ml-2 text-pre-wrap">{{ description }}</p>
           </v-col>
         </v-row>
       </v-card>
@@ -52,21 +52,21 @@ export default {
   data: () => ({
     name: "斎木翔太",
     birthDay: "2001/02/10",
-    profile: require("../assets/profile.jpg"),
+    profile: require("../assets/profile.png"),
     description:
-      "新米Androidエンジニアです。SNSアプリやBluetoothで接続されたセンサを制御するアプリを作っています。新しい技術に日々触れながら、常に成長し続けられるエンジニアでありたいと思っています。",
+      "Androidアプリ開発を始め、フロントエンド・バックエンド、インフラ構築運用をやったりするなんでも屋さんです。(気持ちはモバイルアプリエンジニアですが)\nSNSアプリや、Bluetooth・USBで接続されたにおいセンサやUSBで接続されたディフューザーを制御するアプリを開発しています。\n新しい技術に日々触れながら、常に成長し続けられるエンジニアでありたいと思っています。",
     links: [
       {
         site: "GitHub",
-        href: "https://github.com/5altNaCl",
+        href: "https://github.com/NaCl5alt",
       },
       {
         site: "Qiita",
-        href: "https://qiita.com/5alt_NaCl",
+        href: "https://qiita.com/NaCl_5alt",
       },
       {
-        site: "Twitter",
-        href: "https://twitter.com/5alt_NaCl",
+        site: "X(旧Twitter)",
+        href: "https://x.com/NaCl_5alt",
       },
       {
         site: "Wantedly",
